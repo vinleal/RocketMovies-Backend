@@ -1,1 +1,1 @@
-API developed to provide content for pepita app
+API developed to provide content for RocketMovies. A Website being developed for the course explorer in RocketSeat
