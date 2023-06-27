@@ -36,7 +36,7 @@ class UsersController {
     const userWithUpdatedEmail = await knex("users").where({email}).first()
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id){
-      throw new AppError("Este telefone já está em uso.")
+      throw new AppError("Este email já está em uso.")
     }
     user.name = name ?? user.name;
     user.email = email ?? user.email;
@@ -49,9 +49,8 @@ class UsersController {
       if (!isOldPasswordMatched){
         throw new AppError("A senha antiga está incorreta")
       }
+      user.password = await hash(password, 8);
     }
-
-    user.password = await hash(password, 8);
 
     await knex("users").where({id: user_id}).update({
       name: user.name,

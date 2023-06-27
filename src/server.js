@@ -9,7 +9,7 @@ const routes = require("./routes")
 
 
 const app = express();
-app.use(cors({credentials: true, origin: 'http://localhost:3333'}));
+app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 app.use(express.json());
 
 app.use("/files",express.static(uploadConfig.UPLOADS_FOLDER))
